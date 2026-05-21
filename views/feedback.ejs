@@ -2,32 +2,43 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Feedback Form</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/feedback.css">
 </head>
 <body>
 	<div class="main">
-            <%- include('partials/header') %>
+		<%- include('partials/header') %>
 	</div>
-	<div class="feedback">
-		<h1>Feedback Form</h1>
-		<form name='feedbackForm' >
-			<div class="form-group">
-			    <label>Your Name</label>
-			    <input type="text" name="uname" id="uname" class="form-control" id="inputText" placeholder="Your Name" required>
+	<section class="feedback-section">
+		<div class="container">
+			<div class="feedback-card">
+				<h2 class="feedback-title">We value your feedback</h2>
+				<p class="feedback-sub">Tell us about your experience — your input helps us improve.</p>
+				<form name="feedbackForm" class="feedback-form" method="get" action="/feed">
+					<div class="row">
+						<div class="col">
+							<label for="uname">Your Name</label>
+							<input type="text" name="uname" id="uname" class="input" placeholder="Your Name" required>
+						</div>
+						<div class="col">
+							<label for="txtemail">Your Email</label>
+							<input type="email" name="txtemail" id="txtemail" class="input" placeholder="Your Email" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-full">
+							<label for="feedback">Feedback</label>
+							<textarea name="feedback" id="feedback" class="textarea" rows="6" placeholder="Please write your feedback here" required></textarea>
+						</div>
+					</div>
+					<div class="form-actions">
+						<button type="submit" class="btn-submit" name="submit">Send Feedback</button>
+					</div>
+				</form>
 			</div>
-			<div class="form-group">
-			    <label>Your Email</label>
-			    <input type="email" name="txtemail" id="txtemail" class="form-control" id="inputEmail" placeholder="Your Email" required>
-			</div>
-			<div class="form-group text1">
-			    <label>Feedback:</label>
-			    <textarea class="inputTextarea" name="feedback" id="feedback" rows="4" class="form-control" ng-model='feedback' placeholder="Please write your Feedback here" required></textarea>
-			</div>
-			<div class="wrapper">
-				<button type="submit" class="btn btn-primary" ng-click="performValidation()" name='submit' formaction="/feed">Submit Feedback</button>
-			</div>
-		</form>
-	</div>
+		</div>
+	</section>
 </body>
 </html>
